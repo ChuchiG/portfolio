@@ -5,7 +5,7 @@ export const categories = [
         title: "Backend",
         icon: Database,
         skills: [
-            { name: "Java", level: 4 },
+            { name: "Java", level: 5 },
             { name: "C#", level: 4 },
             { name: "SQL", level: 4 },
             { name: "SQLite", level: 3 },
@@ -21,8 +21,6 @@ export const categories = [
             { name: "JavaScript", level: 4 },
             { name: "React", level: 5 },
             { name: "React Native", level: 3 },
-            { name: "NativeWind", level: 3 },
-            { name: "Zustand", level: 3 },
             { name: "TypeScript", level: 3 }
         ]
     },
@@ -31,11 +29,10 @@ export const categories = [
         icon: Wrench,
         skills: [
             { name: "Jira", level: 4 },
-            { name: "GitHub", level: 4 },
+            { name: "GitHub", level: 5 },
             { name: "JSON", level: 5 },
             { name: "XML", level: 4 },
             { name: "Vercel", level: 4 },
-            { name: "Excel", level: 3 },
             { name: "Expo", level: 4 }
         ]
     }

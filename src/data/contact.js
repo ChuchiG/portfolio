@@ -28,3 +28,5 @@ export const contactInfo = [
 ];
 
 export const cvPath = '/documents/cvJesusGajate.pdf';
+export const coverLetterPath = '/documents/cpJesusGajate.pdf';
+

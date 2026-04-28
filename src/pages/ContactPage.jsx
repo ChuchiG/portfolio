@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Loader2, Download } from 'lucide-react';
+import { Send, Loader2, Download, FileText } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-import { contactInfo, cvPath } from '../data/contact';
+import { contactInfo, cvPath, coverLetterPath } from '../data/contact';
 
 const ContactPage = () => {
     const form = useRef();
@@ -39,7 +39,7 @@ const ContactPage = () => {
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="space-y-8"
+                        className="space-y-6"
                     >
                         <div>
                             <h1 className="text-4xl font-bold text-gray-900 mb-4">Hablemos</h1>
@@ -48,7 +48,7 @@ const ContactPage = () => {
                             </p>
                         </div>
 
-                        <div className="space-y-6">
+                        <div className="space-y-4">
                             {contactInfo.map((item) => {
                                 const Icon = item.icon;
                                 return (
@@ -64,20 +64,30 @@ const ContactPage = () => {
                                 );
                             })}
 
-                            {/* Download CV */}
-                            <div className="mt-8 pt-8 border-t border-gray-100">
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Currículum Vitae</h3>
-                                <p className="text-gray-600 mb-6">
-                                    Descarga mi currículum para conocer en detalle mi formación y experiencia profesional.
+                            {/* Download Documents */}
+                            <div className="mt-6 pt-6 border-t border-gray-100">
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">Documentación</h3>
+                                <p className="text-gray-600 mb-4">
+                                    Descarga mi currículum o mi carta de presentación para conocer más sobre mi perfil profesional.
                                 </p>
-                                <a
-                                    href={cvPath}
-                                    download="cv_JesusGajate.pdf"
-                                    className="inline-flex items-center pl-5 pr-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-md group"
-                                >
-                                    <Download className="w-5 h-5 mr-3 group-hover:-translate-y-1 transition-transform" />
-                                    Descargar CV
-                                </a>
+                                <div className="flex flex-wrap gap-4">
+                                    <a
+                                        href={cvPath}
+                                        download="cv_JesusGajate.pdf"
+                                        className="inline-flex items-center pl-5 pr-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-md group"
+                                    >
+                                        <Download className="w-5 h-5 mr-3 group-hover:-translate-y-1 transition-transform" />
+                                        Descargar CV
+                                    </a>
+                                    <a
+                                        href={coverLetterPath}
+                                        download="carta_presentacion_JesusGajate.pdf"
+                                        className="inline-flex items-center pl-5 pr-6 py-3 bg-white text-gray-900 border-2 border-gray-900 font-medium rounded-lg hover:bg-gray-50 transition shadow-md group"
+                                    >
+                                        <FileText className="w-5 h-5 mr-3 group-hover:-translate-y-1 transition-transform" />
+                                        Carta de Presentación
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </motion.div>
