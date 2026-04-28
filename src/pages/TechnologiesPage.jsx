@@ -9,12 +9,10 @@ const TechnologiesPage = () => {
             icon: Database,
             skills: [
                 { name: "Java", level: 4 },
-                { name: "C#", level: 3 },
-                { name: "Kotlin", level: 2 },
-                { name: "Python", level: 2 },
-                { name: "SQL", level: 3 },
+                { name: "C#", level: 4 },
+                { name: "SQL", level: 4 },
                 { name: "SQLite", level: 3 },
-                { name: "API REST", level: 4 }
+                { name: "API REST", level: 5 }
             ]
         },
         {
@@ -24,11 +22,10 @@ const TechnologiesPage = () => {
                 { name: "HTML5", level: 5 },
                 { name: "CSS3", level: 5 },
                 { name: "JavaScript", level: 4 },
-                { name: "Vue", level: 3 },
-                { name: "React", level: 3 },
-                { name: "React Native", level: 4 },
-                { name: "NativeWind", level: 4 },
-                { name: "Zustand", level: 4 },
+                { name: "React", level: 5 },
+                { name: "React Native", level: 3 },
+                { name: "NativeWind", level: 3 },
+                { name: "Zustand", level: 3 },
                 { name: "TypeScript", level: 3 }
             ]
         },
@@ -40,6 +37,7 @@ const TechnologiesPage = () => {
                 { name: "GitHub", level: 4 },
                 { name: "JSON", level: 5 },
                 { name: "XML", level: 4 },
+                { name: "Vercel", level: 4 },
                 { name: "Excel", level: 3 },
                 { name: "Expo", level: 4 }
             ]

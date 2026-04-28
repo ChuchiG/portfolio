@@ -142,7 +142,15 @@ const ProjectDetails = () => {
                                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
                                     <h3 className="text-lg font-bold text-gray-900 mb-4">Enlaces</h3>
                                     <div className="space-y-4">
-                                        {project.githubUrl && (
+                                        {(!project.githubUrl || project.githubUrl === "private") ? (
+                                            <button
+                                                disabled
+                                                className="flex items-center justify-center w-full px-4 py-3 bg-gray-200 text-gray-500 rounded-lg cursor-not-allowed border border-gray-300 font-medium"
+                                            >
+                                                <Github className="w-5 h-5 mr-2 opacity-50" />
+                                                Repositorio Privado
+                                            </button>
+                                        ) : (
                                             <a
                                                 href={project.githubUrl}
                                                 target="_blank"
@@ -153,7 +161,18 @@ const ProjectDetails = () => {
                                                 Ver Código en GitHub
                                             </a>
                                         )}
-                                        {project.videoUrl && (
+                                        {project.liveUrl && (
+                                            <a
+                                                href={project.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center justify-center w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md group"
+                                            >
+                                                <ExternalLink className="w-5 h-5 mr-2" />
+                                                Visitar Sitio Web
+                                            </a>
+                                        )}
+                                        {project.videoUrl && project.videoUrl !== "#" && (
                                             <a
                                                 href={project.videoUrl}
                                                 target="_blank"

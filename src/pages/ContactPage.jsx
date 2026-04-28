@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, Loader2 } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Loader2, Download } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
 const ContactPage = () => {
@@ -77,6 +77,22 @@ const ContactPage = () => {
                                     <p className="text-gray-600">+34 691 058 309</p>
                                 </div>
                             </div>
+
+                            {/* Download CV */}
+                            <div className="mt-8 pt-8 border-t border-gray-100">
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">Currículum Vitae</h3>
+                                <p className="text-gray-600 mb-6">
+                                    Descarga mi currículum para conocer en detalle mi formación y experiencia profesional.
+                                </p>
+                                <a
+                                    href="/documents/cvJesusGajate.pdf"
+                                    download="cv_JesusGajate.pdf"
+                                    className="inline-flex items-center pl-5 pr-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-md group"
+                                >
+                                    <Download className="w-5 h-5 mr-3 group-hover:-translate-y-1 transition-transform" />
+                                    Descargar CV
+                                </a>
+                            </div>
                         </div>
                     </motion.div>
 
@@ -113,9 +129,9 @@ const ContactPage = () => {
                                 type="submit"
                                 disabled={status === 'loading'}
                                 className={`w-full font-medium py-3 rounded-lg transition-colors flex items-center justify-center gap-2 ${status === 'loading' ? 'bg-gray-400 cursor-not-allowed' :
-                                        status === 'success' ? 'bg-green-600 hover:bg-green-700' :
-                                            status === 'error' ? 'bg-red-600 hover:bg-red-700' :
-                                                'bg-blue-600 hover:bg-blue-700'
+                                    status === 'success' ? 'bg-green-600 hover:bg-green-700' :
+                                        status === 'error' ? 'bg-red-600 hover:bg-red-700' :
+                                            'bg-blue-600 hover:bg-blue-700'
                                     } text-white`}
                             >
                                 {status === 'loading' ? (

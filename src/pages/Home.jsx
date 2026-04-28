@@ -60,7 +60,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100">
-                                    <p className="font-bold text-gray-900">1 Año</p>
+                                    <p className="font-bold text-gray-900">+1 Año</p>
                                     <p className="text-sm text-gray-500">De experiencia</p>
                                 </div>
                             </div>

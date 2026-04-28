@@ -1,5 +1,6 @@
 import projectLanding from '../assets/project-landing.png';
 import zenithAppShot from '../assets/zenith-app-shot.jpg';
+import olimpiadasMaristas from '../assets/olimpiadasMaristas.png';
 
 export const projects = [
     {
@@ -23,17 +24,17 @@ export const projects = [
         image: zenithAppShot,
         isMobile: true,
         githubUrl: "https://github.com/ChuchiG/ZenithStudy.git",
-        videoUrl: "#" // Placeholder
+        videoUrl: "#"
     },
     {
         id: 3,
-        title: "App para jugar a impostor",
-        description: "Aplicación para jugar en equipo al juego de impostor viral de tiktok.",
-        longDescription: "Una divertida herramienta digital para facilitar partidas del popular juego de deducción social. Gestiona roles, temporizadores y tareas de manera automática, permitiendo a los jugadores centrarse en la interacción y el debate.",
-        tags: ["React", "DnD", "Node.js"],
-        secondaryTags: ["Socket.io", "Express"],
-        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-        githubUrl: "#",
-        videoUrl: "#"
+        title: "Olimpiadas Maristas 2026",
+        description: "Web para las olimpiadas escolares Maristas del 2026, donde está toda la información del evento.",
+        longDescription: "Progressive Web App (PWA) desarrollada para ofrecer acceso en tiempo real a horarios, resultados y medalleros de las Olimpiadas Maristas. Nace de la necesidad de mantener informados a participantes y familias de forma rápida y accesible. Durante los 3 días del evento, la plataforma fue un éxito rotundo según los datos de Google Analytics: registró picos de más de 1,500 usuarios activos simultáneos y superó los 5,000 visitantes únicos totales. Su diseño mobile-first y soporte offline garantizaron una experiencia ininterrumpida y fluida durante toda la competición.",
+        tags: ["Next.js", "Tailwind CSS", "PWA"],
+        secondaryTags: ["React", "TypeScript", "Google Apps Script"],
+        image: olimpiadasMaristas,
+        githubUrl: "private",
+        liveUrl: "https://olimpiadasmaristas.com/"
     }
 ];
