@@ -1,49 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Database, Layout, Wrench, Code } from 'lucide-react';
+import { Code } from 'lucide-react';
+import { categories } from '../data/technologies';
+import SkillBar from '../components/SkillBar';
 
 const TechnologiesPage = () => {
-    const categories = [
-        {
-            title: "Backend",
-            icon: Database,
-            skills: [
-                { name: "Java", level: 4 },
-                { name: "C#", level: 4 },
-                { name: "SQL", level: 4 },
-                { name: "SQLite", level: 3 },
-                { name: "API REST", level: 5 }
-            ]
-        },
-        {
-            title: "Frontend",
-            icon: Layout,
-            skills: [
-                { name: "HTML5", level: 5 },
-                { name: "CSS3", level: 5 },
-                { name: "JavaScript", level: 4 },
-                { name: "React", level: 5 },
-                { name: "React Native", level: 3 },
-                { name: "NativeWind", level: 3 },
-                { name: "Zustand", level: 3 },
-                { name: "TypeScript", level: 3 }
-            ]
-        },
-        {
-            title: "Herramientas y Otros",
-            icon: Wrench,
-            skills: [
-                { name: "Jira", level: 4 },
-                { name: "GitHub", level: 4 },
-                { name: "JSON", level: 5 },
-                { name: "XML", level: 4 },
-                { name: "Vercel", level: 4 },
-                { name: "Excel", level: 3 },
-                { name: "Expo", level: 4 }
-            ]
-        }
-    ];
-
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -63,24 +24,6 @@ const TechnologiesPage = () => {
                 duration: 0.5
             }
         }
-    };
-
-    // Componente para renderizar las barras de nivel
-    const SkillBars = ({ level }) => {
-        // Determinamos el color: Azul si es 5, Verde si es menor a 5
-        const activeColor = level === 5 ? 'bg-blue-600' : 'bg-green-500';
-
-        return (
-            <div className="flex space-x-[3px] ml-auto">
-                {[...Array(5)].map((_, index) => (
-                    <div
-                        key={index}
-                        className={`h-6 w-2 transform -skew-x-12 transition-colors duration-300 ${index < level ? activeColor : 'bg-gray-300'
-                            }`}
-                    />
-                ))}
-            </div>
-        );
     };
 
     return (
@@ -137,7 +80,7 @@ const TechnologiesPage = () => {
                                                     <Code className="w-4 h-4 mr-2 text-gray-400" />
                                                     <span className="font-medium text-gray-700 text-sm">{skill.name}</span>
                                                 </div>
-                                                <SkillBars level={skill.level} />
+                                                <SkillBar level={skill.level} />
                                             </li>
                                         ))}
                                     </ul>

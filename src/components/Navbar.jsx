@@ -1,18 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Code2, Home, Mail, Briefcase, Cpu } from 'lucide-react';
+import { Menu, X, Code2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { navLinks } from '../data/navigation';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
-
-    const navLinks = [
-        { name: 'Inicio', path: '/', icon: Home },
-        { name: 'Tecnologías', path: '/technologies', icon: Cpu },
-        { name: 'Proyectos', path: '/projects', icon: Briefcase },
-        { name: 'Contacto', path: '/contact', icon: Mail },
-    ];
 
     const isActive = (path) => location.pathname === path;
 

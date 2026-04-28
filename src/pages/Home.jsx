@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Github, Linkedin, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { personalInfo, socialLinks } from '../data/social';
 
 const Home = () => {
     return (
@@ -16,12 +17,12 @@ const Home = () => {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <h2 className="text-sm font-bold text-blue-600 uppercase tracking-wide mb-2">Full Stack Developer</h2>
+                            <h2 className="text-sm font-bold text-blue-600 uppercase tracking-wide mb-2">{personalInfo.role}</h2>
                             <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 mb-6 leading-tight">
                                 Creando experiencias <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">digitales únicas</span>
                             </h1>
                             <p className="text-lg text-gray-600 mb-8 max-w-lg">
-                                Desarrollador apasionado por construir aplicaciones modernas, escalables e intuitivas. Especializado en el desarrollo de APis REST y aplicaciones web.
+                                {personalInfo.description}
                             </p>
 
                             <div className="flex flex-wrap gap-4">
@@ -34,8 +35,20 @@ const Home = () => {
                             </div>
 
                             <div className="mt-12 flex items-center gap-6 text-gray-500">
-                                <a href="https://github.com/ChuchiG" className="hover:text-blue-600 transition-colors"><Github className="w-6 h-6" /></a>
-                                <a href="https://www.linkedin.com/in/jesus-angel-gajate-luna" className="hover:text-blue-600 transition-colors"><Linkedin className="w-6 h-6" /></a>
+                                {socialLinks.map((link) => {
+                                    const Icon = link.icon;
+                                    return (
+                                        <a 
+                                            key={link.id} 
+                                            href={link.url} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="hover:text-blue-600 transition-colors"
+                                        >
+                                            <Icon className="w-6 h-6" />
+                                        </a>
+                                    );
+                                })}
                             </div>
                         </motion.div>
 
@@ -60,7 +73,7 @@ const Home = () => {
                                     </div>
                                 </div>
                                 <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100">
-                                    <p className="font-bold text-gray-900">+1 Año</p>
+                                    <p className="font-bold text-gray-900">{personalInfo.experience}</p>
                                     <p className="text-sm text-gray-500">De experiencia</p>
                                 </div>
                             </div>

@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Phone, Send, Loader2, Download } from 'lucide-react';
+import { Send, Loader2, Download } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { contactInfo, cvPath } from '../data/contact';
 
 const ContactPage = () => {
     const form = useRef();
@@ -48,35 +49,20 @@ const ContactPage = () => {
                         </div>
 
                         <div className="space-y-6">
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
-                                    <Mail className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-900">Email</h3>
-                                    <p className="text-gray-600">chuchigajate@hotmail.com</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
-                                    <MapPin className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-900">Ubicación</h3>
-                                    <p className="text-gray-600">Salamanca, España</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start space-x-4">
-                                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600">
-                                    <Phone className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-gray-900">Teléfono</h3>
-                                    <p className="text-gray-600">+34 691 058 309</p>
-                                </div>
-                            </div>
+                            {contactInfo.map((item) => {
+                                const Icon = item.icon;
+                                return (
+                                    <div key={item.id} className="flex items-start space-x-4">
+                                        <div className={`w-12 h-12 ${item.bgColor} rounded-lg flex items-center justify-center ${item.textColor}`}>
+                                            <Icon className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-semibold text-gray-900">{item.title}</h3>
+                                            <p className="text-gray-600">{item.value}</p>
+                                        </div>
+                                    </div>
+                                );
+                            })}
 
                             {/* Download CV */}
                             <div className="mt-8 pt-8 border-t border-gray-100">
@@ -85,7 +71,7 @@ const ContactPage = () => {
                                     Descarga mi currículum para conocer en detalle mi formación y experiencia profesional.
                                 </p>
                                 <a
-                                    href="/documents/cvJesusGajate.pdf"
+                                    href={cvPath}
                                     download="cv_JesusGajate.pdf"
                                     className="inline-flex items-center pl-5 pr-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition shadow-md group"
                                 >

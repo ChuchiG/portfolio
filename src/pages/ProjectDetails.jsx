@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Github, Play, ExternalLink } from 'lucide-react';
 import { projects } from '../data/projects';
+import LinkButton from '../components/LinkButton';
 
 const ProjectDetails = () => {
     const { id } = useParams();
@@ -142,46 +143,30 @@ const ProjectDetails = () => {
                                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
                                     <h3 className="text-lg font-bold text-gray-900 mb-4">Enlaces</h3>
                                     <div className="space-y-4">
-                                        {(!project.githubUrl || project.githubUrl === "private") ? (
-                                            <button
-                                                disabled
-                                                className="flex items-center justify-center w-full px-4 py-3 bg-gray-200 text-gray-500 rounded-lg cursor-not-allowed border border-gray-300 font-medium"
-                                            >
-                                                <Github className="w-5 h-5 mr-2 opacity-50" />
-                                                Repositorio Privado
-                                            </button>
-                                        ) : (
-                                            <a
-                                                href={project.githubUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center justify-center w-full px-4 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition shadow-md group"
-                                            >
-                                                <Github className="w-5 h-5 mr-2" />
-                                                Ver Código en GitHub
-                                            </a>
-                                        )}
+                                        <LinkButton 
+                                            href={project.githubUrl}
+                                            disabled={!project.githubUrl || project.githubUrl === "private"}
+                                            icon={Github}
+                                            text={(!project.githubUrl || project.githubUrl === "private") ? "Repositorio Privado" : "Ver Código en GitHub"}
+                                            variant="primary"
+                                        />
+                                        
                                         {project.liveUrl && (
-                                            <a
+                                            <LinkButton 
                                                 href={project.liveUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center justify-center w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md group"
-                                            >
-                                                <ExternalLink className="w-5 h-5 mr-2" />
-                                                Visitar Sitio Web
-                                            </a>
+                                                icon={ExternalLink}
+                                                text="Visitar Sitio Web"
+                                                variant="blue"
+                                            />
                                         )}
+                                        
                                         {project.videoUrl && project.videoUrl !== "#" && (
-                                            <a
+                                            <LinkButton 
                                                 href={project.videoUrl}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center justify-center w-full px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition shadow-md"
-                                            >
-                                                <Play className="w-5 h-5 mr-2 fill-current" />
-                                                Ver Demo en Video
-                                            </a>
+                                                icon={Play}
+                                                text="Ver Demo en Video"
+                                                variant="red"
+                                            />
                                         )}
                                     </div>
                                 </div>
