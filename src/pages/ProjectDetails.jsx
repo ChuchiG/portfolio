@@ -34,12 +34,12 @@ const ProjectDetails = () => {
         <div className="min-h-screen bg-gray-50 pt-24 pb-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Row */}
-                <div className="relative flex items-center justify-center mb-8">
+                <div className="relative flex flex-col md:flex-row md:items-center md:justify-center mb-8 gap-4 md:gap-0">
                     <motion.button
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         onClick={() => navigate('/projects')}
-                        className="absolute left-0 flex items-center text-gray-600 hover:text-blue-600 transition group"
+                        className="md:absolute md:left-0 flex items-center text-gray-600 hover:text-blue-600 transition group self-start"
                     >
                         <ArrowLeft className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" />
                         Volver a Proyectos
@@ -48,7 +48,7 @@ const ProjectDetails = () => {
                     <motion.h1
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-3xl md:text-4xl font-bold text-gray-900 text-center"
+                        className="text-3xl md:text-4xl font-bold text-gray-900 text-center w-full"
                     >
                         {project.title}
                     </motion.h1>
