@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { AnimatePresence } from 'framer-motion';
@@ -10,8 +10,24 @@ const TechnologiesPage = lazy(() => import('./pages/TechnologiesPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ProjectDetails = lazy(() => import('./pages/ProjectDetails'));
 
+// Prefetch en segundo plano tras la carga inicial para evitar el spinner al navegar
+function prefetchPages() {
+  const idle = window.requestIdleCallback ?? ((cb) => setTimeout(cb, 200));
+  idle(() => {
+    import('./pages/ProjectsPage');
+    import('./pages/TechnologiesPage');
+    import('./pages/ContactPage');
+    import('./pages/ProjectDetails');
+  });
+}
+
 function AppContent() {
   const location = useLocation();
+
+  useEffect(() => {
+    prefetchPages();
+  }, []); // solo una vez al montar
+
   return (
     <div className="bg-white min-h-screen font-sans text-gray-900">
       <Navbar />
