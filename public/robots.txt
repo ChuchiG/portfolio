@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chugajate.dev/sitemap.xml
