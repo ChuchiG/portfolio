@@ -13,15 +13,17 @@ function AppContent() {
   return (
     <div className="bg-white min-h-screen font-sans text-gray-900">
       <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/project/:id" element={<ProjectDetails />} />
-          <Route path="/technologies" element={<TechnologiesPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </AnimatePresence>
+      <main>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/project/:id" element={<ProjectDetails />} />
+            <Route path="/technologies" element={<TechnologiesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
     </div>
   );
 }

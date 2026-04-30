@@ -43,6 +43,7 @@ const Home = () => {
                                             href={link.url} 
                                             target="_blank" 
                                             rel="noopener noreferrer" 
+                                            aria-label={link.name}
                                             className="hover:text-blue-600 transition-colors"
                                         >
                                             <Icon className="w-6 h-6" />
