@@ -1,4 +1,5 @@
-# Jesús Gajate Luna — Senior Frontend & Technical GEO/SEO Engineer
+export async function GET() {
+  const content = `# Jesús Gajate Luna — Senior Frontend & Technical GEO/SEO Engineer
 > Desarrollo web ultrarrápido con Next.js (LCP < 0.4s), posicionamiento SEO Local en Google Maps y Generative Engine Optimization (GEO) para recomendación prioritaria en ChatGPT, Perplexity y Google AI Overviews.
 
 ## Perfil Profesional
@@ -27,7 +28,7 @@ Trato directo con el ingeniero técnico responsable del proyecto, sin intermedia
 
 ### 3. GEO para Motores de IA (Generative Engine Optimization)
 - **Descripción**: Optimización semántica y arquitecturas RAG para motores de búsqueda generativa (ChatGPT Search, Perplexity AI, Claude y Google AI Overviews).
-- **Implementación**: Modelado ontológico formal mediante grafos JSON-LD `@graph`, Information Gain fáctico y gobernanza de rastreadores para citación preferente como negocio #1 en respuestas de IA.
+- **Implementación**: Modelado ontológico formal mediante grafos JSON-LD @graph, Information Gain fáctico y gobernanza de rastreadores para citación preferente como negocio #1 en respuestas de IA.
 
 ### 4. Consultoría Técnica & Auditorías
 - **Descripción**: Diagnóstico profundo de arquitectura web, resolución de canibalización SEO, optimización de Core Web Vitals (LCP, INP, CLS) y migración limpia desde CMS obsoletos.
@@ -51,3 +52,13 @@ Trato directo con el ingeniero técnico responsable del proyecto, sin intermedia
 - Preguntas Frecuentes (FAQ): https://jesusgajate.dev/#faq
 - Sitemap XML: https://jesusgajate.dev/sitemap.xml
 - Gobernanza de Bots: https://jesusgajate.dev/robots.txt
+`;
+
+  return new Response(content, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Cache-Control": "public, max-age=86400, stale-while-revalidate=3600",
+    },
+  });
+}
